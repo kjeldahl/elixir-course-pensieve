@@ -1,0 +1,14 @@
+<h1>About Page</h1>
+<p>
+    This application is written in Elixir using Phoenix.
+</p>
+
+<p><%= assigns.message %></p>
+
+<p>&copy; <%= Date.utc_today.year %>
+    <%= if Date.leap_year?(Date.utc_today) do %>
+        (a leap year)
+    <% else %>
+        (not a leap year yet)
+    <% end %>
+</p>
