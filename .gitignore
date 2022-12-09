@@ -32,3 +32,4 @@ pensieve-*.tar
 npm-debug.log
 /assets/node_modules/
 
+*.sublime-*
