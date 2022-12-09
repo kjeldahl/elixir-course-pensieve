@@ -1,17 +1,16 @@
 defmodule PensieveWeb.MemoryController do
   use PensieveWeb, :controller
 
-  alias Pensieve.Repo
-  alias Pensieve.Memories.Memory
+  alias Pensieve.Memories
 
   def index(conn, _params) do
-    memories = Repo.all(Memory)
+    memories = Memories.list_memories()
 
     render(conn, "index.html", memories: memories)
   end
 
   def show(conn, %{"id" => id}) do
-    memory = Repo.get!(Memory, id)
+    memory = Memories.get_memory!(id)
 
     render(conn, "show.html", memory: memory)
   end
