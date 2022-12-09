@@ -1,0 +1,18 @@
+<h1><%= @memory.title %></h1>
+
+<p>
+  <%= link "Edit", to: Routes.memory_path(@conn, :edit, @memory) %>
+  |
+  <%= link "Go back", to: Routes.memory_path(@conn, :index) %>
+</p>
+
+<p>
+  <%= @memory.content %>
+</p>
+
+<hr>
+
+<ul>
+  <li>Added: <%= format_timestamp(@memory.inserted_at) %></li>
+  <li>Updated: <%= format_timestamp(@memory.updated_at) %></li>
+</ul>

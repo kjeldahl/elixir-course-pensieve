@@ -1,0 +1,24 @@
+<h1>Memories</h1>
+
+<%= link "Add new", to: Routes.memory_path(@conn, :new) %>
+
+<table class="table">
+  <thead>
+    <th>Title</th>
+    <th>Added</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= for memory <- @memories do %>
+      <tr>
+        <td><%= memory.title %></td>
+        <td><%= format_timestamp(memory.inserted_at) %></td>
+        <td>
+          <%= link "View", to: Routes.memory_path(@conn, :show, memory) %>
+          <%= link "Edit", to: Routes.memory_path(@conn, :edit, memory) %>
+          <%= link "Delete", to: Routes.memory_path(@conn, :delete, memory) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
