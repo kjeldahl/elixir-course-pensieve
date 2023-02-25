@@ -1,0 +1,28 @@
+<h1>Show Wizard</h1>
+
+<ul>
+
+  <li>
+    <strong>First name:</strong>
+    <%= @wizard.first_name %>
+  </li>
+
+  <li>
+    <strong>Last name:</strong>
+    <%= @wizard.last_name %>
+  </li>
+
+  <li>
+    <strong>House:</strong>
+    <%= @wizard.house %>
+  </li>
+
+  <li>
+    <strong>Points:</strong>
+    <%= @wizard.points %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.wizard_path(@conn, :edit, @wizard) %></span> |
+<span><%= link "Back", to: Routes.wizard_path(@conn, :index) %></span>

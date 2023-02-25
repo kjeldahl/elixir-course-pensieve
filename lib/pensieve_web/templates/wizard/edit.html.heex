@@ -1,0 +1,5 @@
+<h1>Edit Wizard</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.wizard_path(@conn, :update, @wizard)) %>
+
+<span><%= link "Back", to: Routes.wizard_path(@conn, :index) %></span>

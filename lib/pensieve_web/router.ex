@@ -19,6 +19,7 @@ defmodule PensieveWeb.Router do
 
     resources "/", MemoryController, only: [:index]
     resources "/memories", MemoryController, except: [:index]
+    resources "/wizards", WizardController
 
     get "/about", PageController, :about
     get "/info", PageController, :info

@@ -1,0 +1,32 @@
+<h1>Listing Wizards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>House</th>
+      <th>Points</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for wizard <- @wizards do %>
+    <tr>
+      <td><%= wizard.first_name %></td>
+      <td><%= wizard.last_name %></td>
+      <td><%= wizard.house %></td>
+      <td><%= wizard.points %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.wizard_path(@conn, :show, wizard) %></span>
+        <span><%= link "Edit", to: Routes.wizard_path(@conn, :edit, wizard) %></span>
+        <span><%= link "Delete", to: Routes.wizard_path(@conn, :delete, wizard), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Wizard", to: Routes.wizard_path(@conn, :new) %></span>
