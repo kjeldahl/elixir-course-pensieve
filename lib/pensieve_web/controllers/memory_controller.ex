@@ -15,6 +15,20 @@ defmodule PensieveWeb.MemoryController do
     render(conn, "edit.html", changeset: changeset, memory: memory)
   end
 
+  def delete(conn, %{"id" => id}) do
+    memory = Memories.get_memory!(id)
+    case Memories.delete_memory(memory) do
+      {:ok, _} ->
+        conn
+        |> put_flash(:info, "Deleted memory")
+        |> redirect(to: Routes.memory_path(conn, :index))
+      {:error, _} ->
+        conn
+        |> put_flash(:warning, "Could not delete memory")
+        |> redirect(to: Routes.memory_path(conn, :index))
+    end
+  end
+
   def create(conn, %{"memory" => memory_params}) do
     case Memories.create_memory(memory_params) do
       {:ok, memory} ->

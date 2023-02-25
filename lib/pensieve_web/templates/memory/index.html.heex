@@ -16,7 +16,7 @@
         <td>
           <%= link "View", to: Routes.memory_path(@conn, :show, memory) %>
           <%= link "Edit", to: Routes.memory_path(@conn, :edit, memory) %>
-          <%= link "Delete", to: Routes.memory_path(@conn, :delete, memory) %>
+          <%= link "Delete", to: Routes.memory_path(@conn, :delete, memory), method: :delete, data: [confirm: "Are you sure?"] %>
         </td>
       </tr>
     <% end %>
