@@ -26,3 +26,7 @@ Repo.insert!(%Memory{
 })
 
 Repo.insert!(%Memory{title: "Potions class"})
+
+for _ <- 0..50 do
+  Repo.insert!(%Memory{title: Faker.Lorem.sentence})
+end
