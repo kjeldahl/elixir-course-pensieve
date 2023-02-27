@@ -1,0 +1,23 @@
+<h1>Search Wizards</h1>
+
+<input type="text" placeholder="Filter by name..." phx-keyup="search" />
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>House</th>
+      <th>Points</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for wizard <- @wizards do %>
+      <tr>
+        <td><%= wizard.first_name %></td>
+        <td><%= wizard.last_name %></td>
+        <td><%= wizard.house %></td>
+        <td><%= wizard.points %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -74,6 +74,7 @@ defmodule PensieveWeb do
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+      import Phoenix.Component
     end
   end
 
@@ -98,6 +99,7 @@ defmodule PensieveWeb do
       import PensieveWeb.ErrorHelpers
       import PensieveWeb.Gettext
       alias PensieveWeb.Router.Helpers, as: Routes
+      import Phoenix.Component
     end
   end
 

@@ -8,6 +8,17 @@ defmodule Pensieve.Hogwarts do
 
   alias Pensieve.Hogwarts.Wizard
 
+  def search_wizards_by_name(name) do
+    names = String.split(name, " ")
+    query = "%#{Enum.join(names, "%")}%"
+    Repo.all(
+      from(
+        w in Wizard,
+        where: ilike(fragment("concat(?, ' ', ?)", w.first_name, w.last_name), ^query)
+      )
+    )
+  end
+
   @doc """
   Returns the list of wizards.
 
